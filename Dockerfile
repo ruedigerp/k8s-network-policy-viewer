@@ -11,7 +11,7 @@ RUN \
   go test -v -cover && \
   go build -o k8s-network-policy-viewer .
 
-FROM ubuntu:cosmic-20190719
+FROM ubuntu:24.04
 WORKDIR /app/
 EXPOSE 8080
 ENV NETWORK_POLICY_VIEWER_BLACKLIST default,kube,flux
