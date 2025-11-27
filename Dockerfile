@@ -1,4 +1,4 @@
-FROM golang:1.12.0 as builder
+FROM golang:1.25.4 as builder
 WORKDIR /go/src/github.com/gerald1248/k8s-network-policy-viewer/
 COPY * ./
 ENV CGO_ENABLED 0
@@ -11,7 +11,7 @@ RUN \
   go test -v -cover && \
   go build -o k8s-network-policy-viewer .
 
-FROM ubuntu:18.10
+FROM ubuntu:cosmic-20190719
 WORKDIR /app/
 EXPOSE 8080
 ENV NETWORK_POLICY_VIEWER_BLACKLIST default,kube,flux
